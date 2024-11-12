@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import AuthProvider from "@/components/auth-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const applicationName = process.env.APP_NAME || "NextJS Starterkit";
 
@@ -29,7 +30,14 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body className={`${inter.className} antialiased`}>
           <Toaster position="bottom-right" reverseOrder={false} />
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </AuthProvider>
