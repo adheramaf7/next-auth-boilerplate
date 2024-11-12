@@ -19,6 +19,7 @@ declare module "next-auth" {
   interface User extends IUserLogin {
   }
 }
+
 declare module "next-auth/adapters" {
   interface AdapterUser extends IUserLogin { }
 }
@@ -44,10 +45,6 @@ const constructUserLogin = ({ data, token, expired_at }: ILoginResponse): IUserL
   }
 
   return user;
-}
-
-class InvalidLoginError extends CredentialsSignin {
-  code = "Invalid identifier or password"
 }
 
 const authOptions = {
