@@ -59,8 +59,6 @@ export function LoginForm() {
         password: values.password,
       });
 
-      console.info(response);
-
       if (response?.error) {
         toast.error("Invalid Credentials");
 
